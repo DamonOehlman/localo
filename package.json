@@ -1,0 +1,32 @@
+{
+    "name": "localo",
+    "description": "localStorage Loader and Cacher for Web Apps",
+    "tags": [],
+    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+    "version": "0.0.1",
+    "main": "index",
+    
+    "engines": {
+        "node": ">= 0.4.x < 0.7.0"
+    },
+    
+    "dependencies": {
+    },
+    
+    "devDependencies": {
+        "interleave": "0.1.x",
+        "uglify-js": "*"
+    },
+    
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/DamonOehlman/lolo.git"
+    },
+    
+    "bugs": {
+        "url": "http://github.com/DamonOehlman/lolo/issues"
+    },
+
+    "contributors": [
+    ]
+}
