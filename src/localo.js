@@ -18,12 +18,25 @@ var localo = (function() {
         store.clean(callback);
     }
     
-    function _define(id, content) {
-        if (! pkg) {
-            throw new Error('No active package');
+    function _define(title, version, content) {
+        // find the package
+        var pkg = _findPackage(_makeId(title, version));
+        
+        // if the package is active, then update the content
+        if (pkg) {
+            pkg.update(store, content);
+        }
+    }
+    
+    function _findPackage(id) {
+        // iterate through the packages and find the requested package
+        for (var ii = packages.length; ii--; ) {
+            if (packages[ii].id === id) {
+                return packages[ii];
+            }
         }
         
-        pkg.define(store, id, content);
+        return undefined;
     }
     
     function _init(packageData) {

@@ -1,5 +1,5 @@
-localo.init({
-    name: 'Test Package',
+localo.define({
+    name: 'test-package',
     version: '0.1.2'
     
     /*
