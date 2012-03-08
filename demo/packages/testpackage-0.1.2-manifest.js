@@ -4,5 +4,9 @@ localo.manifest('test-package', '0.1.2', {
     ],
     
     css: [
-    ]
+    ],
+    
+    snippets: {
+        hbstemplate: '<ul>{{#each item}}<li>{{ text }}</li>{{/each}}</ul>'
+    }
 });
