@@ -6,9 +6,9 @@ _This is a discussion before it becomes a project._
 
 Despite some variance in opinion with regards to whether `localStorage` is fast or slow, bad or good, I believe it to be something that is worth exploring with regards to caching remote resources especially on narrower than desktop broadband connections.
 
-Last year, at [Web Directions Unplugged](http://unplugged11.webdirections.org/program/), [Nicholas Zakas](http://twitter.com/slicknet) talked about a number of [different topics with regards to web performance](http://www.webdirections.org/resources/nicholas-zakas-mobile-web-speed-bumps/) and in that time talked about a trick that [Steve Souders](http://twitter.com/souders) covered regarding use of localStorage to cache remote resources such as Javascript and CSS.  I've been thinking of ways to do something along these lines since this time, and specifically around ways this could be a purely client-side solution. (_Previous implementations require some cooperation between the server-side and client-side_).
+Last year, at [Web Directions Unplugged](http://unplugged11.webdirections.org/program/), [Nicholas Zakas](http://twitter.com/slicknet) talked about a number of [different topics with regards to web performance](http://www.webdirections.org/resources/nicholas-zakas-mobile-web-speed-bumps/) and in that time talked about a trick that [Steve Souders](http://twitter.com/souders) covered regarding use of localStorage to cache remote resources such as Javascript and CSS.  
 
-I definitely think the opportunity is there, but it definitely needs to be talked through before any implementation is created.
+I've been thinking of ways to do something along these lines since this time, and specifically around ways this could be a __purely client-side solution__. (_Previous implementations require some cooperation between the server-side and client-side_). I definitely think the opportunity is there, but it definitely needs to be talked through before any implementation is created.
 
 ## General Approach
 
@@ -38,7 +38,7 @@ localo(packages, loadComplete);
 
 The call to `localo` at the bottom of the page is telling our localo resource loader that our application code on the page requires `test-package` version `0.1.2`.  
 
-___NOTE:___ _Versioning is key in implementation of localo and the excellent [semver](http://semver.org/) specification will be followed and [isaacs](http://twitter.com/izs) [JS implementation](http://github.com/isaacs/node-semver) will be used._
+___NOTE:___ _Versioning is key in implementation of localo and the  [semver](http://semver.org/) specification will be followed and [Isaac  Schlueter's](http://twitter.com/izs) [JS implementation](http://github.com/isaacs/node-semver) will be used._
 
 While the implementation of the `localo` script loader is still something I'm working out, I do have a clearer idea on what might be contained within the package files:
 
@@ -67,6 +67,12 @@ localo.manifest('test-package', '0.1.2', {
 ```
 
 The contents of the manifest (3 argument) are designed to be very JSON serializable and thus suitable for storage.
+
+## Supporting Tools
+
+If you are looking through what is proposed so far, and thinking well that sounds good, but there is no way I'm going to package my files in the way you are suggesting, then I think that's a reasonably thought.
+
+It's for this reason that I believe for what is being suggested here to be successful, that localo will need to include both a simple command-line tool that will be used to package resources and perhaps also an online site that can take care of packaging for you.
 
 ## Thoughts?
 
