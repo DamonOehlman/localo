@@ -49,7 +49,7 @@ localo.define({
 });
 ```
 
-This file would be available online at the following url (http://remotesite.com/packages/testpackage-0.1.2.js). You will notice that the package file contains no code at all, and while in the case above seems largely redundant exists for the purpose of defining dependencies, etc.  Well that's the thinking anyway.
+This file would be available online at the following url ([http://remotesite.com/packages/testpackage-0.1.2.js](https://raw.github.com/DamonOehlman/localo/master/demo/packages/testpackage-0.1.2.js)). You will notice that the package file contains no code at all, and while in the case above seems largely redundant exists for the purpose of defining dependencies, etc.  Well that's the thinking anyway.
 
 So once localo knows what it is that it is meant to load, and the version that is required, it checks whether it has a version of the package manifest available locally.  While in time there might be IndexedDB versions of this storage, the primary target is definitely localStorage.
 
@@ -68,11 +68,13 @@ localo.manifest('test-package', '0.1.2', {
 
 The contents of the manifest (3 argument) are designed to be very JSON serializable and thus suitable for storage.
 
-## Supporting Tools
+## Supporting Tools and Infrastructure
 
 If you are looking through what is proposed so far, and thinking well that sounds good, but there is no way I'm going to package my files in the way you are suggesting, then I think that's a reasonably thought.
 
 It's for this reason that I believe for what is being suggested here to be successful, that localo will need to include both a simple command-line tool that will be used to package resources and perhaps also an online site that can take care of packaging for you.
+
+Additionally, I think an online centralised locator service would be a great way to locate packages distributed around the web, this would mean that a package could be required without having to specify a specify remote repository for the repo, and potentially a repository that is close to you topographically could be chosen.
 
 ## Thoughts?
 
